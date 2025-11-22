@@ -1,2 +1,5 @@
 venv
 youtube_titles_thumbs_all_queries.csv
+thumbnails
+clip_unfreeze_and_linear_head.ipynb
+clip_finetuned_youtube_virality.pt
