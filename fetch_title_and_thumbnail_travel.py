@@ -8,26 +8,64 @@ import csv
 from urllib.parse import quote_plus
 
 QUERIES = [
-    "ai", "tech", "coding", "productivity", "startups", "youtube tips", "devlog",'artificial intelligence', 'machine learning',
-    'robotics ai','data science project',
-    "ai tutorial", "ai tools", "ai explained",
 
-    "coding tutorial", "python tutorial", "javascript beginners",
+   #Core Keywords
+     "travel vlog", 
+    #Top Travel Vlogger Names 
+    "Luisito Comunica",  "Mark Wiens", "bald and bankrupt", "Drew Binsky", 
+    "Kara and Nate", "Itchy Boots", 
+    "LivingBobby", "Louis Cole", "FunForLouis", "The Bucket List Family", 
+    "Eva zu Beck", "Christian LeBlanc", "Lost LeBlanc", "Wolters World", 
+    "Abroad in Japan", "JacksGap",
 
-    "productivity tips", "study productivity", "deep work",
+    #Top City Vlogs 
+    "paris vlog", "london vlog", "dubai vlog", "istanbul vlog", "tokyo vlog", 
+    "new york city vlog", "bangkok vlog", "singapore vlog", "rome vlog", 
+    "barcelona vlog", "amsterdam vlog", "los angeles vlog", "seoul vlog", 
+    "miami vlog", "sydney vlog", "vienna vlog", "berlin vlog", "prague vlog", 
+    "dublin vlog", "kuala lumpur vlog",
+    "hong kong vlog", "macau vlog", "taipei vlog", "phuket vlog", "delhi vlog",
+    "mumbai vlog", "kyoto vlog", "venice vlog", "madrid vlog", "athens vlog",
+    "budapest vlog", "lisbon vlog", "florence vlog", "san francisco vlog",
+    "las vegas vlog", "chicago vlog", "toronto vlog", "osaka vlog", 
+    "ho chi minh city vlog", "hanoi vlog", "rio de janeiro vlog", "cairo vlog",
+    "antalyia vlog", "cancun vlog",
+    
+    
+    #Country & Specific Region Vlogs 
+    #South America
+    "brazil travel vlog", "sao paulo vlog", "salvador brazil vlog", "fortaleza vlog",
+    "colombia travel vlog", "bogota vlog", "medellin vlog", "cartagena vlog", "cali colombia vlog",
+    "peru travel vlog", "lima vlog", "cusco vlog", "machu picchu vlog",
+    "argentina travel vlog", "buenos aires vlog", "mendoza vlog", 
+    
+    
+    #Asia
+    "china travel vlog", "beijing vlog", "shanghai vlog", "xi'an vlog", "chengdu vlog", 
+    "guangzhou vlog", "hangzhou vlog", "guilin vlog", 
+    "philippines travel vlog", "manila vlog", "cebu vlog", "palawan vlog", "boracay vlog",
+    
+    
+    #Eurasia / Africa
+    "russia travel vlog", "moscow vlog", "st petersburg vlog", "kazan vlog",
+    "turkey travel vlog", "antalya vlog", "cappadocia vlog", "izmir vlog",
+    "morocco travel vlog", "marrakech vlog", "casablanca vlog", "fez vlog", "tangier vlog",
+    "georgia travel vlog", "tbilisi vlog", "batumi vlog", 
 
-    "startup story", "startup advice", "founder vlog",
-
-    "youtube thumbnail", "grow on youtube", "how to get views",
-
-    "gamedev devlog", "indie devlog",
+    #Top Country
+    "france travel vlog", "spain travel vlog", "united states travel vlog", 
+    "italy travel vlog", "mexico travel vlog", "thailand travel vlog", 
+    "japan travel vlog", "greece travel vlog", "portugal travel vlog", 
+    "croatia travel vlog", "vietnam travel vlog", "iceland travel vlog", 
+    "south africa travel vlog", "bali vlog", "santorini vlog" 
 ]
+
 
 HEADLESS = False
 SCROLL_TIMES = 25              # scroll times
 SCROLL_PAUSE = 2               # scroll pause for cards to load
-MAX_VIDEOS_PER_QUERY = 400     
-OUT_CSV = "youtube_titles_thumbs_all_queries.csv"
+MAX_VIDEOS_PER_QUERY = 500     
+OUT_CSV = "youtube_titles_thumbs_travel_queries.csv"
 
 
 def make_driver():
@@ -90,7 +128,6 @@ def scrape_titles_and_thumbnails(query: str, max_videos: int):
 
     body = driver.find_element(By.TAG_NAME, "body")
 
-    # scroll to load
     for _ in range(SCROLL_TIMES):
         body.send_keys(Keys.END)
         time.sleep(SCROLL_PAUSE)

@@ -4,8 +4,8 @@ import requests
 import pandas as pd
 from tqdm import tqdm
 
-CSV_PATH = "youtube_titles_thumbs_all_queries.csv"
-OUT_DIR = "thumbnails"
+CSV_PATH = "youtube_titles_thumbs_travel_queries.csv"
+OUT_DIR = "thumbnails_travel"
 TIMEOUT = 10         # seconds per request
 SLEEP = 0.05         # short pause between downloads 
 
@@ -35,6 +35,7 @@ def main():
 
     # read CSV
     df = pd.read_csv(CSV_PATH)
+    df = df[(df['views'] >= 10000) & (df['views'] <= 10000000)]
 
     # basic column check
     if "video_id" not in df.columns or "thumbnail_url" not in df.columns:
