@@ -19,4 +19,3 @@ summarizing_video_transcripts.ipynb
 youtube_titles_thumbs_travel_queries copy.csv
 bert_youtube_views_model
 clip_streamlit.py
-clip_unfreeze_and_linear_head.ipynb
